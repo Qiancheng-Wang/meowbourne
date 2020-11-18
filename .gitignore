@@ -1,1 +1,5 @@
 /server/model/train
+
+/server/model/labels.csv
+
+/server/model/__pycache__

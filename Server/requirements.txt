@@ -1,0 +1,8 @@
+Flask
+flask_restful
+requests
+numpy
+pandas
+opencv-python
+tensorflow
+sklearn

@@ -12,6 +12,8 @@ Transfer Learning is a technique in which a model that is trained on a certain t
 
 - `Higher and better performance`: As the models used in transfer learning are carefully designed, they perform better on other similar tasks as well.
 
+quick for training: 2389 cat & kitten pictures, 10 Epochs, only 8 mins.
+
 ### Tech Stack
 
 - Stage 1:

@@ -16,13 +16,13 @@ def read_image(path, size):
 
 def predict(image_path):
     labels_path = os.path.join(os.path.dirname(__file__), "labels.csv")
-    
+    ROOT_DIR = os.path.dirname(os.path.realpath(__file__)).rsplit(os.sep, 2)[0]
     # 1. import model h5 file
     MODEL_DIRECTORY = os.path.join(os.path.dirname(__file__),"model.h5");
     model = tf.keras.models.load_model(MODEL_DIRECTORY)
 
     # 2. read image
-    image = read_image(os.path.join(os.path.dirname(__file__),image_path), 224)
+    image = read_image(os.path.join(ROOT_DIR, "DB", "images", image_path), 224)
     image = np.expand_dims(image, axis=0)
 
     # 3. predict

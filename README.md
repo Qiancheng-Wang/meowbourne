@@ -28,7 +28,7 @@ quick for training: 2389 cat & kitten pictures, 10 Epochs, only 8 mins.
 
   1. Build a `python Scrawler` script that able to fetch all the current available cat information (including name, age, picture, etc.), mainly rely on **RSPCAVIC**.
 
-  2. Integrate the function with `Flask` and enable `redis` to cache the frequently requsted information. Apply `docker-compose` to get the latest redis image.
+  2. Integrate the function with `Flask`
 
   3. Front-end setup with `React.js` to demonstrate the data and functionalities.
 

@@ -28,7 +28,7 @@ const MainPage: React.FC = () => {
   return (
     <Grid container spacing={3}>
       {items.map((c: CardProps) => (
-        <Grid item xs={6} sm={3}>
+        <Grid item xs={6} sm={3} key={c._id}>
           <Card
             name={c.Name}
             breed={c.Breed}
@@ -41,6 +41,7 @@ const MainPage: React.FC = () => {
             id={c._id}
             imageString={c.image_string}
             age={c.Age}
+            key={c._id}
           />
         </Grid>
       ))}

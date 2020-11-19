@@ -19,7 +19,7 @@ const StartButton: React.FC = () => {
     dispatch,
   } = React.useContext(CatsContext);
 
-  //const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
   const getCatHandler = async () => {
     try {
@@ -28,7 +28,7 @@ const StartButton: React.FC = () => {
       });
 
       //nothing but show anim
-      //await delay(3000);
+      await delay(3000);
 
       const res = await getCats();
       dispatch({

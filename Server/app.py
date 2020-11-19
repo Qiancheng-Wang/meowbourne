@@ -18,19 +18,19 @@ class Predict(Resource):
         
         encodeString = postedData["encodeString"]
 
-        # try:
-        result = predict(encodeString)
-        return { 
-                "status": 200,
-                "result": result
-            }
-        # except:
-        #     abort( 400, "Bad request, predict failed.")
+        try:
+            result = predict(encodeString)
+            return { 
+                    "status": 200,
+                    "result": result
+                }
+        except:
+            abort( 400, "Bad request, predict failed.")
 
 class Cat(Resource):
     def get(self):
 
-        ROOT_DIR = os.path.dirname(os.path.realpath(__file__)).rsplit(os.sep, 1)[0]
+        ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
         data_path = os.path.join(ROOT_DIR, "DB", "data.json")
         print(data_path)
         
@@ -47,11 +47,11 @@ class Cat(Resource):
                         image_file.close()
                 json_file.close()  
                 return {
-                        **json_data,
-                        "status":200
-                    }
+                            **json_data,
+                            "status":200
+                        }
         except:
-          abort( 400, "Bad request, get cat data failed.")
+            abort( 400, "Bad request, get cat data failed.")
 
 
 api.add_resource(Predict, "/predict")

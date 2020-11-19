@@ -26,6 +26,7 @@ interface CardComponentProps {
   size: string;
   id: string;
   imageString: string;
+  key: string;
 }
 
 const Card: React.FC<CardComponentProps> = ({

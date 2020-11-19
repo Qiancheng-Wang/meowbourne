@@ -6,3 +6,4 @@ pandas
 opencv-python
 tensorflow
 sklearn
+flask_cors

@@ -16,7 +16,7 @@ quick for training: 2389 cat & kitten pictures, 10 Epochs, only 8 mins.
 
 ### Tech Stack
 
-- Stage 1:
+- 1:
 
   1. Use `Tensorflow` to build up a transfer learning maching learning model, which aims to predict the breed of a cat picture.
 
@@ -24,7 +24,7 @@ quick for training: 2389 cat & kitten pictures, 10 Epochs, only 8 mins.
 
   3. Use Docker to containerize the service for further deployment usage.
 
-- Stage 2:
+- 2:
 
   1. Build a `python Scrawler` script that able to fetch all the current available cat information (including name, age, picture, etc.), mainly rely on **RSPCAVIC**.
 
@@ -34,7 +34,7 @@ quick for training: 2389 cat & kitten pictures, 10 Epochs, only 8 mins.
 
   4. Dockerize the front-end project, apply `docker-compose`
 
-- Stage 3:
+- 3:
 
   1. Deploy the repo to AWS EC2 instance.
 

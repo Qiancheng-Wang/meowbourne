@@ -5,6 +5,7 @@ import pandas as pd
 import tensorflow as tf
 import cv2
 import json
+import base64
 
 def read_image(path, size):
     image = cv2.imread(path, cv2.IMREAD_COLOR)
@@ -13,8 +14,7 @@ def read_image(path, size):
     image = image.astype(np.float32)
     return image
 
-
-def predict(image_path):
+def predict(encodeString):
     labels_path = os.path.join(os.path.dirname(__file__), "labels.csv")
     ROOT_DIR = os.path.dirname(os.path.realpath(__file__)).rsplit(os.sep, 2)[0]
     # 1. import model h5 file
@@ -22,7 +22,15 @@ def predict(image_path):
     model = tf.keras.models.load_model(MODEL_DIRECTORY)
 
     # 2. read image
-    image = read_image(os.path.join(ROOT_DIR, "DB", "images", image_path), 224)
+    #image = read_image(os.path.join(ROOT_DIR, "DB", "images", encodeString), 224)
+
+    temp_path = os.path.join(os.path.dirname(__file__), "Temp.jpg")
+    imgdata = base64.b64decode(encodeString)
+    with open(temp_path, 'wb') as f:
+        f.write(imgdata)
+
+    image = read_image(temp_path, 224)
+
     image = np.expand_dims(image, axis=0)
 
     # 3. predict

@@ -3,3 +3,5 @@
 /server/model/labels.csv
 
 /server/model/__pycache__
+
+/client/node_modules

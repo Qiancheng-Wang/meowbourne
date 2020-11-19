@@ -14,7 +14,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - REACT_APP_ENDPOINT=http://ec2-3-238-149-232.compute-1.amazonaws.com:8000
+      - REACT_APP_ENDPOINT=http://ec2-3-237-241-226.compute-1.amazonaws.com:8000
 
   server:
     build: ./Server

@@ -1,6 +1,6 @@
 import { get } from "./helpers";
 
-const baseUrl = "http://localhost:8000";
+const baseUrl = process.env.REACT_APP_ENDPOINT || "http://localhost:8000";
 
 export const getCats = () => {
   const url = `${baseUrl}/cat`;

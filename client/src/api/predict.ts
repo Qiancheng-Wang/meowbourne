@@ -1,7 +1,6 @@
 import { post } from "./helpers";
 
-const baseUrl = "http://localhost:8000";
-
+const baseUrl = process.env.REACT_APP_ENDPOINT || "http://localhost:8000";
 interface PredictData {
   encodeString: string;
 }

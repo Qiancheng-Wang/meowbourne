@@ -6,10 +6,15 @@ import os
 import numpy as np
 import base64
 from flask_cors import CORS
+from redis import Redis
+
 from model.predict import predict
 
 app = Flask(__name__)
 CORS(app)
+
+redis = Redis(host=os.getenv('REDIS_HOSTNAME') or "localhost" , port=6379)
+
 api = Api(app)
 
 class Predict(Resource):
@@ -33,8 +38,18 @@ class Cat(Resource):
         ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
         data_path = os.path.join(ROOT_DIR, "DB", "data.json")
         print(data_path)
-        
+
         try:
+            val = redis.get("cat_meta") 
+            if val:
+                print("Return cached data")
+                string = val.decode()
+                ret_json = json.loads(string)
+                return {
+                        **ret_json,
+                        "status":201
+                    }
+
             with open(data_path) as json_file:
                 json_data = json.load(json_file)
 
@@ -46,10 +61,13 @@ class Cat(Resource):
                         i['image_string'] = encoded_string.decode('utf-8')
                         image_file.close()
                 json_file.close()  
+
+                redis.set(name="cat_meta", value=json.dumps(json_data)) 
+                redis.expire("cat_meta", 300)
                 return {
-                            **json_data,
-                            "status":200
-                        }
+                        **json_data,
+                        "status":200
+                    }
         except:
             abort( 400, "Bad request, get cat data failed.")
 

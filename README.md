@@ -26,7 +26,7 @@ quick for training: 2389 cat & kitten pictures, 10 Epochs, only 8 mins.
 
 - 2:
 
-  1. Build a `python Scrawler` script that able to fetch all the current available cat information (including name, age, picture, etc.), mainly rely on **RSPCAVIC**.
+  1. Build a `python Scrawler` script that able to fetch all the current available cat information if possible(including name, age, picture, etc.), mainly rely on **RSPCAVIC**. If not possibile, manually get data at this stage.
 
   2. Integrate the function with `Flask`
 
@@ -38,7 +38,25 @@ quick for training: 2389 cat & kitten pictures, 10 Epochs, only 8 mins.
 
   1. Deploy the repo to AWS EC2 instance.
 
-## Bonus Part:
+#### Start Page
+
+![Start Page](README/startpage.png)
+
+#### Fetching Data
+
+![Fetching Data](README/trackingdata.png)
+
+#### Home Page
+
+![Home Page](README/homepage.png)
+
+#### Predict Result
+
+![Predict Result](README/predictresult.png)
+
+## Future Parts:
+
+Roughly spent two evening on this project, so it is really simple and straight forward.
 
 If have time, can decouple the services into serverless features.
 

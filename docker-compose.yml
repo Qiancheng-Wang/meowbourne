@@ -11,12 +11,20 @@ services:
       - /usr/app/node_modules
     depends_on:
       - server
+      - redis
     ports:
       - "3000:3000"
     environment:
       - REACT_APP_ENDPOINT=http://ec2-3-237-241-226.compute-1.amazonaws.com:8000
-
+  redis:
+    image: redis
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+    ports:
+      - "6379:6379"
+    hostname: redis
   server:
     build: ./Server
     ports:
       - "8000:8000"
+    environment:
+      - REDIS_HOSTNAME = redis

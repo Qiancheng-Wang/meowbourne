@@ -27,4 +27,4 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - REDIS_HOSTNAME = redis
+      - REDIS_HOSTNAME=redis
